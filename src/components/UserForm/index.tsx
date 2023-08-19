@@ -36,7 +36,6 @@ const UserForm = () => {
       hasErrors = true;
     }else if(!validateEmail(email)){ 
       hasErrors = true;
-      console.log("invalid email")
       setEmailError('Please enter valid email');
     }else {
       setEmailError('');
@@ -47,7 +46,6 @@ const UserForm = () => {
       hasErrors = true;
     }else if (!validateMobile(phone)) {
       hasErrors = true;
-      console.log('invlid mobile');
       setPhoneError('Please enter valid phone number');
     }else {
       setPhoneError('');
@@ -61,7 +59,7 @@ const UserForm = () => {
       };
       localStorage.setItem('formData', JSON.stringify(formData));
   
-      window.location.href = '/home';//verfiy
+      window.location.href = '/home';
     }
   };
 
@@ -69,19 +67,34 @@ const UserForm = () => {
   return (
     <Box sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Stack spacing={4} direction='column'>
+
       <Typography variant="h4" align="center" gutterBottom>
         User Form
       </Typography>
-        <TextField label='Name' value={name} 
+
+        <TextField label='Name' 
+          value={name} 
           onChange={(e) => setName(e.target.value)} 
-          error={!!nameError} helperText={nameError} required />
-        <TextField label='Email' type='email' value={email} 
+          error={!!nameError} 
+          helperText={nameError} 
+          required 
+        />
+
+        <TextField label='Email' type='email' 
+          value={email} 
           onChange={(e) => setEmail(e.target.value)} 
-          error={!!emailError} helperText={emailError} required />
-        <TextField label='Phone' value={phone} 
+          error={!!emailError} 
+          helperText={emailError} 
+          required 
+        />
+
+        <TextField label='Phone' 
+          value={phone} 
           onChange={(e) => setPhone(e.target.value)} 
           error={!!phoneError} 
-          helperText={phoneError} required />
+          helperText={phoneError} 
+          required 
+        />
         <Button variant='contained' disableElevation onClick={handleSubmit}>Submit</Button>
       </Stack>
     </Box>

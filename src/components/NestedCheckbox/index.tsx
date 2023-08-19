@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Checkbox,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  IconButton,
-  Stack,
-  Typography,
-} from '@mui/material';
+import {Checkbox, List, ListItem, ListItemText, IconButton, Stack, Typography} from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 interface Department {
@@ -98,39 +89,39 @@ const NestedCheckbox: React.FC = () => {
       <Typography variant="h4" align="center" gutterBottom marginTop='4rem'>
         Select Department
       </Typography>
-    <List>
-      {selectedData.map((node) => (
-        <React.Fragment key={node.id}>
-          <ListItem>
-            {/* <ListItemIcon> */}
-              <Checkbox
-                checked={node.selected || false}
-                indeterminate={
-                  node.children?.some((child) => child.selected) &&
-                  !node.children?.every((child) => child.selected)
-                }
-                onChange={handleParentCheckboxChange(node.id)}
-              />
-            {/* </ListItemIcon> */}
-            <ListItemText primary={node.label} />
-            <IconButton onClick={() => handleToggleChildVisibility(node.id)}>
-              {node.showChildren ? <ExpandLess /> : <ExpandMore />}
-            </IconButton>
-          </ListItem>
-          {node.showChildren && node.children?.map((child) => (
-            <ListItem key={child.id} style={{ paddingLeft: '50px' }}>
-              <ListItemIcon>
+
+      <List>
+        {selectedData.map((node) => (
+          <React.Fragment key={node.id}>
+            <ListItem>
                 <Checkbox
-                  checked={child.selected || false}
-                  onChange={handleChildCheckboxChange(node.id, child.id)}
+                  checked={node.selected || false}
+                  indeterminate={
+                    node.children?.some((child) => child.selected) &&
+                    !node.children?.every((child) => child.selected)
+                  }
+                  onChange={handleParentCheckboxChange(node.id)}
                 />
-              </ListItemIcon>
-              <ListItemText primary={child.label} />
+              <ListItemText primary={node.label} />
+              <IconButton onClick={() => handleToggleChildVisibility(node.id)}>
+                {node.showChildren ? <ExpandLess /> : <ExpandMore />}
+              </IconButton>
             </ListItem>
-          ))}
-        </React.Fragment>
-      ))}
-    </List>
+
+            {node.showChildren && node.children?.map((child) => (
+              <ListItem key={child.id} style={{ paddingLeft: '50px' }}>
+                
+                <Checkbox
+                    checked={child.selected || false}
+                    onChange={handleChildCheckboxChange(node.id, child.id)}
+                  />
+                <ListItemText primary={child.label} />
+              </ListItem>
+            ))}
+            
+          </React.Fragment>
+        ))}
+      </List>
     </Stack>
   );
 };

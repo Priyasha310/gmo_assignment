@@ -85,7 +85,7 @@ const NestedCheckbox: React.FC = () => {
   };
 
   return (
-    <Stack display='flex' justifyContent='center' alignItems='center' marginBottom='8rem'>
+    <Stack display='flex' justifyContent='center' alignItems='center' marginBottom='8rem' id='select-dept'>
       <Typography variant="h4" align="center" gutterBottom marginTop='4rem'>
         Select Department
       </Typography>

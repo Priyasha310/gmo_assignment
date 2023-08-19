@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import PostsTable from './components/PostsTable';
 import UserForm from './components/UserForm';
 import Checkbox from './components/NestedCheckbox';
+import Sidebar from './components/Sidebar/Sidebar';
 
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/home" element={isFormDataSubmitted ? 
-          <><PostsTable /> <Checkbox/></> 
+          <><Sidebar/> <PostsTable /> <Checkbox/></> 
           : 
           <Navigate to="/" />
         } />

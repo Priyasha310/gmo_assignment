@@ -3,12 +3,12 @@ import { useState } from 'react'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 
 const UserForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [nameError, setNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [phoneError, setPhoneError] = useState('');
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
+  const [nameError, setNameError] = useState<string>('');
+  const [emailError, setEmailError] = useState<string>('');
+  const [phoneError, setPhoneError] = useState<string>('');
 
   
   const validateEmail = (email: string) => {

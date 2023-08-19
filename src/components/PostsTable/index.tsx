@@ -34,7 +34,7 @@ const PostsTable: React.FC = () => {
   ];
 
   return (
-    <div style={{height:'80vh', width: '80%', margin:'2rem 10%'}}>
+    <div style={{height:'100vh', width: '80%', margin:' 0 10%'}} id='#posts-table'>
         <Typography variant="h4" align="center" gutterBottom>
             Posts Table
         </Typography>

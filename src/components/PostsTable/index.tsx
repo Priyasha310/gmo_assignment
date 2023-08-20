@@ -1,9 +1,7 @@
-// PostsTable.tsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Typography } from '@mui/material';
-
 interface Post {
   userId: number;
   id: number;
@@ -26,19 +24,30 @@ const PostsTable: React.FC = () => {
     fetchPosts();
   }, []);
 
+
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 100 },
-    { field: 'userId', headerName: 'User ID', width: 100 },
-    { field: 'title', headerName: 'Title', width: 300 },
-    { field: 'body', headerName: 'Body', width: 500 },
+    { field: 'id', headerName: 'ID', flex:0.07, headerClassName: 'header', },
+    { field: 'userId', headerName: 'User ID', flex:0.1, headerClassName: 'header', },
+    { field: 'title', headerName: 'Title', flex: 0.3, headerClassName: 'header', },
+    { field: 'body', headerName: 'Body',flex:0.43, headerClassName: 'header', },
   ];
 
+
   return (
-    <div style={{height:'100vh', width: '80%', margin:' 0 10%'}} id='#posts-table'>
-        <Typography variant="h4" align="center" gutterBottom>
-            Posts Table
+    <div style={{height:'100vh', width: '80%', margin:' 0 10%'}} id='#postsTable'>
+        <Typography variant="h4" align="center" gutterBottom fontWeight='bold'>
+            POSTS TABLE
         </Typography>
-        <DataGrid rows={posts} columns={columns} />
+        <DataGrid rows={posts} columns={columns} 
+        sx={{
+          boxShadow: 2,
+          '& .MuiDataGrid-cell:hover': {
+            overflow:'visible'
+          },
+          '& .header': {
+            backgroundColor: 'white',
+          },
+          }}/>
     </div>
   );
 };

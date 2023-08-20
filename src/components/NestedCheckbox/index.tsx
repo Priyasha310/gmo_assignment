@@ -85,12 +85,12 @@ const NestedCheckbox: React.FC = () => {
   };
 
   return (
-    <Stack display='flex' justifyContent='center' alignItems='center' marginBottom='8rem' id='select-dept'>
-      <Typography variant="h4" align="center" gutterBottom marginTop='4rem'>
-        Select Department
+    <Stack display='flex' justifyContent='center' alignItems='center' marginBottom='8rem' id='selectDept'>
+      <Typography variant="h4" align="center" gutterBottom marginTop='8rem'  fontWeight='bold'>
+        SELECT DEPARTMENT
       </Typography>
       <List>
-        <Box border="1px solid black" p={2}>
+        <Box boxShadow={2} p={2} >
           {selectedData.map((node) => (
             <React.Fragment key={node.id}>
               <ListItem divider sx={{mt:'2rem'}}>
